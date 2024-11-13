@@ -1,4 +1,4 @@
-export type Suit = '♠' | '♣' | '♦' | '♥'
+export type Suit = 'S' | 'C' | 'D' | 'H'
 export type Rank =
     | '2'
     | '3'
@@ -9,7 +9,7 @@ export type Rank =
     | '8'
     | '9'
     | '10'
-    | 'J'
-    | 'Q'
-    | 'K'
-    | 'A'
+    | 'j'
+    | 'q'
+    | 'k'
+    | 'a'

@@ -3,6 +3,7 @@ import { Button } from 'antd'
 import { DeckManager } from './models/Deck/DeckManager'
 import { useEffect, useRef, useState } from 'react'
 import { Card } from './models/Card/Card'
+import * as deck from '@letele/playing-cards'
 
 export default function Home() {
     const [drawnCard, setDrawnCard] = useState<Card | null>(null)
@@ -37,17 +38,21 @@ export default function Home() {
         setDrawnCard(null)
     }
 
+    const Card = deck[`${drawnCard?.card}`]
+
     return (
         <div>
-            <h1>Decks in shoe: {decksInShoe.toFixed(2)}</h1>
-            <h1>Cards left: {cardsLeft}</h1>
+            <h1>Welcome to Count Master</h1>
+            <h2>Decks in shoe: {decksInShoe.toFixed(2)}</h2>
+            <h2>Cards left: {cardsLeft}</h2>
             <Button onClick={handleDrawCard}>Draw a card!</Button>
-            <h1>
+            <h2>
                 Card drawn:{' '}
                 {drawnCard?.card &&
                     `${drawnCard?.card} - Value:${drawnCard?.value}`}
-            </h1>
+            </h2>
             <Button onClick={handleReshuffle}>Reshuffle the Show</Button>
+            <div>{drawnCard && <Card />}</div>
         </div>
     )
 }

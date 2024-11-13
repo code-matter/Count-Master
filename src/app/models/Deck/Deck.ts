@@ -9,7 +9,7 @@ export class Deck {
     }
 
     private initializeDeck(): void {
-        const suits: Suit[] = ['♠', '♣', '♦', '♥']
+        const suits: Suit[] = ['S', 'C', 'D', 'H']
         const ranks: Rank[] = [
             '2',
             '3',
@@ -20,12 +20,12 @@ export class Deck {
             '8',
             '9',
             '10',
-            'J',
-            'Q',
-            'K',
-            'A',
+            'j',
+            'q',
+            'k',
+            'a',
         ]
-        const valueMap: { [key in Rank]: -1 | 0 | 1 } = {
+        const weightMap: { [key in Rank]: -1 | 0 | 1 } = {
             '2': 1,
             '3': 1,
             '4': 1,
@@ -35,17 +35,37 @@ export class Deck {
             '8': 0,
             '9': 0,
             '10': 0,
-            J: -1,
-            Q: -1,
-            K: -1,
-            A: -1,
+            j: -1,
+            q: -1,
+            k: -1,
+            a: -1,
+        }
+        const valueMap: { [key in Rank]: number } = {
+            '2': 2,
+            '3': 3,
+            '4': 4,
+            '5': 5,
+            '6': 6,
+            '7': 7,
+            '8': 8,
+            '9': 9,
+            '10': 10,
+            j: 10,
+            q: 10,
+            k: 10,
+            a: 10,
         }
 
         for (const suit of suits) {
             for (const rank of ranks) {
-                const cardString = `${rank}${suit}`
+                const cardString = `${suit}${rank}`
+                const cardWeight = weightMap[rank]
                 const cardValue = valueMap[rank]
-                this.cards.push({ card: cardString, value: cardValue })
+                this.cards.push({
+                    card: cardString,
+                    weight: cardWeight,
+                    value: cardValue,
+                })
             }
         }
     }

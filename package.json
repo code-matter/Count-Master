@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.1",
+    "@letele/playing-cards": "^0.1.0",
+    "@types/": "letele/playing-cards",
     "antd": "^5.22.0",
     "dayjs": "^1.11.13",
     "i18next": "^23.16.5",

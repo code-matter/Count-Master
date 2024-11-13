@@ -14,5 +14,6 @@
 
 export interface Card {
     card: string // e.g., 'K♣'
-    value: -1 | 0 | 1 // The value of the card for counting purposes
+    weight: -1 | 0 | 1 // The value of the card for counting purposes
+    value: number
 }
